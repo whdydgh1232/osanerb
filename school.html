@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
     <title>JAVAScript Basic Page</title>
-    <!-- ÃÊ±âÈ­ -->
+    <!-- ì´ˆê¸°í™” -->
     <style>
         * {
             margin: 0;
             padding: 0;
-            font-family: '¸¼Àº °íµñ', 'Malgun Gothic', Gothic, sans-serif;
+            font-family: 'ë§‘ì€ ê³ ë”•', 'Malgun Gothic', Gothic, sans-serif;
         }
 
         a {
@@ -18,7 +20,7 @@
             list-style: none;
         }
     </style>
-    <!-- ±âº» Å¬·¡½º -->
+    <!-- ê¸°ë³¸ í´ëž˜ìŠ¤ -->
     <style>
         .pull-left {
             float: left;
@@ -28,7 +30,7 @@
             float: right;
         }
     </style>
-    <!-- ÆäÀÌÁö -->
+    <!-- íŽ˜ì´ì§€ -->
     <style>
         body {
             width: 960px;
@@ -44,7 +46,7 @@
             box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
         }
     </style>
-    <!-- Çì´õ -->
+    <!-- í—¤ë” -->
     <style>
         #main-header {
             padding: 40px 50px;
@@ -61,7 +63,7 @@
             color: #383838;
         }
     </style>
-    <!-- ³×ºñ°ÔÀÌ¼Ç -->
+    <!-- ë„¤ë¹„ê²Œì´ì…˜ -->
     <style>
         #main-navigation {
             border-top: 1px solid #C8C8C8;
@@ -111,7 +113,7 @@
                 color: white;
             }
     </style>
-    <!-- ³×ºñ°ÔÀÌ¼Ç ³»ºÎÀÇ °Ë»ö -->
+    <!-- ë„¤ë¹„ê²Œì´ì…˜ ë‚´ë¶€ì˜ ê²€ìƒ‰ -->
     <style>
         .search-bar {
             height: 26px;
@@ -150,10 +152,10 @@
             display: inline-block;
         }
     </style>
-    <!-- Áß¾Ó ³»¿ë -->
+    <!-- ì¤‘ì•™ ë‚´ìš© -->
     <style>
-        /* body ÅÂ±×ÀÇ ³Êºñ: 960ÇÈ¼¿ */
-        /* #page-wrapper ÅÂ±×ÀÇ padding ¼Ó¼ºÀ¸·Î ³»¿ë¹° ³Êºñ´Â 920ÇÈ¼¿ */
+        /* body íƒœê·¸ì˜ ë„ˆë¹„: 960í”½ì…€ */
+        /* #page-wrapper íƒœê·¸ì˜ padding ì†ì„±ìœ¼ë¡œ ë‚´ìš©ë¬¼ ë„ˆë¹„ëŠ” 920í”½ì…€ */
         #content {
             overflow: hidden;
         }
@@ -168,7 +170,7 @@
             width: 200px;
         }
     </style>
-    <!-- ÁÂÃø ³»¿ë¹° -->
+    <!-- ì¢Œì¸¡ ë‚´ìš©ë¬¼ -->
     <style>
         article {
             padding: 0 10px 20px 10px;
@@ -193,7 +195,7 @@
             font-size: 14px;
         }
     </style>
-    <!-- ¿ìÃø ±¸¼º -->
+    <!-- ìš°ì¸¡ êµ¬ì„± -->
     <style>
         .aside-list {
             padding: 10px 0 30px 0;
@@ -225,7 +227,7 @@
     <div id="page-wrapper">
         <header id="main-header">
             <hgroup>
-                <h1 class="master-title">¸ÅÈ¦?°íµîÇÐ±³</h1>
+                <h1 class="master-title">ë§¤í™€?ê³ ë“±í•™êµ</h1>
                 <h2 class="master-description">JavaScript</h2>
             </hgroup>
         </header>
@@ -235,29 +237,29 @@
                     <li class="outer-menu-item">
                         <span class="menu-title">HTML5</span>
                         <ul class="inner-menu">
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
                         </ul>
                     </li>
                     <li class="outer-menu-item">
                         <span class="menu-title">CSS3</span>
                         <ul class="inner-menu">
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
                         </ul>
                     </li>
                     <li class="outer-menu-item">
                         <span class="menu-title">JavaScript</span>
                         <ul class="inner-menu">
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
-                            <li class="inner-menu-item"><a href="#">µ¥ÀÌÅÍ</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
+                            <li class="inner-menu-item"><a href="#">ë°ì´í„°</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -266,7 +268,7 @@
                 <div class="search-bar">
                     <form>
                         <input type="text" class="input-search" />
-                        <input type="submit" class="input-search-submit" value="°Ë»ö" />
+                        <input type="submit" class="input-search-submit" value="ê²€ìƒ‰" />
                     </form>
                 </div>
             </div>
@@ -275,57 +277,57 @@
             <section id="main-section">
                 <article>
                     <div class="article-header">
-                        <h1 class="article-title">HTML5 °³Á¶¹× ¿À¿ë</h1>
-                        <p class="article-date">2023³â 11¿ù 11ÀÏ</p>
+                        <h1 class="article-title">HTML5 ê°œì¡°ë° ì˜¤ìš©</h1>
+                        <p class="article-date">2023ë…„ 11ì›” 11ì¼</p>
                     </div>
                     <div class="article-body">
                         <img src="http://placehold.it/430x280" />
                         <br />
                         <br />
-                        <p>¸¸¾à ´ç½ÅÀÌ ÀÌ ±ÛÀ» º¸°í ÀÖ´Ù¸é ´ç½ÅÀº Áö±Ý À§ÇèÇÑ »óÈ²¿¡ ³õÀÎ °ÍÀÔ´Ï´Ù. </p>
+                        <p>ë§Œì•½ ë‹¹ì‹ ì´ ì´ ê¸€ì„ ë³´ê³  ìžˆë‹¤ë©´ ë‹¹ì‹ ì€ ì§€ê¸ˆ ìœ„í—˜í•œ ìƒí™©ì— ë†“ì¸ ê²ƒìž…ë‹ˆë‹¤. </p>
                         <br />
-                        <p>ÀÌ È­¸é¿¡¼­ ±ÛÀº ÀÌ ±Û 1ÁÙ »ÓÀÔˆ• ¸¸¾à ´Ù¸¥ ±ÛÀÌ º¸ÀÎ´Ù¸é ´çÀå µµ¸Á°¡½Ê½Ã¿À. </p>
+                        <p>ì´ í™”ë©´ì—ì„œ ê¸€ì€ ì´ ê¸€ 1ì¤„ ë¿ìž…ÂˆÂ• ë§Œì•½ ë‹¤ë¥¸ ê¸€ì´ ë³´ì¸ë‹¤ë©´ ë‹¹ìž¥ ë„ë§ê°€ì‹­ì‹œì˜¤. </p>
                     </div>
                 </article>
                 <article>
                     <div class="article-header">
-                        <h1 class="article-title">HTML5 ÀÀ¿ë°ú ½Ç½À</h1>
-                        <p class="article-date">2023³â 11¿ù 11ÀÏ</p>
+                        <h1 class="article-title">HTML5 ì‘ìš©ê³¼ ì‹¤ìŠµ</h1>
+                        <p class="article-date">2023ë…„ 11ì›” 11ì¼</p>
                     </div>
                     <div class="article-body">
                         <img src="http://placehold.it/430x280" />
                         <br />
                         <br />
-                        <p>³Ê´Â º°À» º¸ÀÚ¸ç ³» ¼ÕÀ» Àâ¾Æ¼­ ¿ö¿ö!~~~. </p>
+                        <p>ë„ˆëŠ” ë³„ì„ ë³´ìžë©° ë‚´ ì†ì„ ìž¡ì•„ì„œ ì›Œì›Œ!~~~. </p>
                         <br />
-                        <p>³ª¶û º° º¸·¯ °¡Áö ¾ÊÀ»·¹¤Ä¤Ä¤Ä¤Ä¤Ä¤Ä¤Ä¤Ä~. </p>
+                        <p>ë‚˜ëž‘ ë³„ ë³´ëŸ¬ ê°€ì§€ ì•Šì„ë ˆã…”ã…”ã…”ã…”ã…”ã…”ã…”ã…”~. </p>
                     </div>
                 </article>
             </section>
             <aside id="main-aside">
                 <div class="aside-list">
-                    <h3>Ä«Å×°í¸®</h3>
+                    <h3>ì¹´í…Œê³ ë¦¬</h3>
                     <ul>
                         <li><a href="https://www.kbs.co.kr">KBS</a></li>
-                        <li><a href="https://whdydgh1232.github.io/osanerb/">À§ÇèÇÑ °÷</a></li>
-                        <li><a href="https://khlee2016.github.io/osanerb/">±³¼ö´Ô »çÀÌÆ®À¸</a></li>
-                        <li><a href="https://cocese1004.github.io/osanerb">¿µÁÖ »çÀÌÆ®À¸</a></li>
-                        <li><a href="https://github.com/">±êÇãºê</a></li>
+                        <li><a href="https://whdydgh1232.github.io/osanerb/">ìœ„í—˜í•œ ê³³</a></li>
+                        <li><a href="https://khlee2016.github.io/osanerb/">êµìˆ˜ë‹˜ ì‚¬ì´íŠ¸ìœ¼</a></li>
+                        <li><a href="https://cocese1004.github.io/osanerb">ì˜ì£¼ ì‚¬ì´íŠ¸ìœ¼</a></li>
+                        <li><a href="https://github.com/">ê¹ƒí—ˆë¸Œ</a></li>
                     </ul>
                 </div>
                 <div class="aside-list">
-                    <h3>ÃÖ±Ù ±Û</h3>
+                    <h3>ìµœê·¼ ê¸€</h3>
                     <ul>
-                        <li><a href="https://visualstudio.microsoft.com/ko/downloads/">ºñÁÖ¾ó ½ºÆ©µð¿À!</a></li>
-                        <li><a href="#">µ¥ÀÌÅÍ</a></li>
-                        <li><a href="#">µ¥ÀÌÅÍ</a></li>
-                        <li><a href="#">µ¥ÀÌÅÍ</a></li>
+                        <li><a href="https://visualstudio.microsoft.com/ko/downloads/">ë¹„ì£¼ì–¼ ìŠ¤íŠœë””ì˜¤!</a></li>
+                        <li><a href="#">ë°ì´í„°</a></li>
+                        <li><a href="#">ë°ì´í„°</a></li>
+                        <li><a href="#">ë°ì´í„°</a></li>
                     </ul>
                 </div>
             </aside>
         </div>
         <footer id="main-footer">
-            <a href="#">Created By Á¶¿ëÈ£</a>
+            <a href="#">Created By ì¡°ìš©í˜¸</a>
         </footer>
     </div>
 </body>
