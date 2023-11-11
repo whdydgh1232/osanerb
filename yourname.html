@@ -2,13 +2,14 @@
 
 <html>
 <head>
-    
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
     <center>
-        <input type="button" id="tajaStart" value="Á¾·á">
-        <input type="checkbox" id="sori">¼Ò¸®²ô±â<br>
-        <input type="button" value="Á¡¼ö">
+        <input type="button" id="tajaStart" value="ì¢…ë£Œ">
+        <input type="checkbox" id="sori">ì†Œë¦¬ë„ê¸°<br>
+        <input type="button" value="ì ìˆ˜">
         <input type="text" id="tajaPoints" size=7><br>
         <progress id="rTime" value=100 max=100></progress><br>
         <input type="text" id="target" size=8><label id="alias"></label><br>
@@ -18,8 +19,8 @@
         points = 0;
         gameEnd = false;
         dtid = null;
-        jsName = ["Á¶¿ëÈ£", "¼Õ¿µÁÖ", "ÀüÈÖ¼®", "±è¿ìÁÖ", "±è¼º¹Î", "±Ç¼ºÇö", "ÀÌÂùÈñ", "ÀÌ°ÇÈñ", "¹Ú»óÇö", "À±¼º¿ø", "¹Ú¼ºÈ£", "´ëÅë·É", "±¹¹«ÃÑ¸®", "±³À°ºÎ Àå°ü", "±¹¹æºÎ Àå°ü", "±¹Á¤¿ø ¿ä¿ø", "ÀÌ½ºÅÍ¾Ö±×", "¾Ö±¹°¡", "±èÄ¡", "ÇÑ±¹ÀÎ", "ÀÏº»ÀÎ", "Áß±¹ÀÎ", "¸ÅÈ¦°í", "È÷Æ²·¯", "¹«¼Ö¸®´Ï", "±èÁ¤Àº", "±èÁ¤ÀÏ", "±èÀÏ¼º", "½ºÅ»¸°", "ÇªÆ¾", "·»¾ß", "ÀÌ¿Ï¿ë", "ÀÏ·Ð¸Ó½ºÅ©"]
-        jsAlias = ["Áß±¹ÀÎ", "ÇÑ±¹ÀÎ", "ÀÏº»ÀÎ", "°øºÎ¾ÈÇÔ", "³Ê ´©±¸¾ß", "µµÁöÄÚÀÎ »ï", "¼Ò¸»¸®¾Æ ¿©Çà", "°ø¾È¿¡ ÀâÈû", "±¹Á¤¿ø¿¡ ÀâÈû", "°Ë¿­", "ÀÌÁß±¹Àû", "³³Ä¡µÈ", "ÁÖ±Ý", "Çã°æ¿µ ÁöÁöÀÚ", "Ä£ÀÏ¹Ý¹ÎÁ·ÇàÀ§ÀÚ", "°ø»ê´ç ÁÁ¾ÆÇÔ", "ÆÄ¶û´ç ÁÁ¾ÆÇÔ", "»¡°£´ç ÁÁ¾ÆÇÔ", "³ª¶ô°¨", "È÷Æ²·¯ Ä£±¸", "ÇÑ±¹¿¡¼­ ÀÏº»±îÁö ¼ö¿µÇØ¼­ °¨", "¼ö¹è µÊ", "Ä®»§¸ÂÀ½", "ÇÏ³²ÀÚ", "¿ùºÏÇÔ", "ÆÄ½Ã½ºÆ®", "ÀÎ¼ºÅÍÁü", "ÀÚÀ¯¸¦ Ã£À¸·¯ ¶°³²", ]
+        jsName = ["ì¡°ìš©í˜¸", "ì†ì˜ì£¼", "ì „íœ˜ì„", "ê¹€ìš°ì£¼", "ê¹€ì„±ë¯¼", "ê¶Œì„±í˜„", "ì´ì°¬í¬", "ì´ê±´í¬", "ë°•ìƒí˜„", "ìœ¤ì„±ì›", "ë°•ì„±í˜¸", "ëŒ€í†µë ¹", "êµ­ë¬´ì´ë¦¬", "êµìœ¡ë¶€ ìž¥ê´€", "êµ­ë°©ë¶€ ìž¥ê´€", "êµ­ì •ì› ìš”ì›", "ì´ìŠ¤í„°ì• ê·¸", "ì• êµ­ê°€", "ê¹€ì¹˜", "í•œêµ­ì¸", "ì¼ë³¸ì¸", "ì¤‘êµ­ì¸", "ë§¤í™€ê³ ", "ížˆí‹€ëŸ¬", "ë¬´ì†”ë¦¬ë‹ˆ", "ê¹€ì •ì€", "ê¹€ì •ì¼", "ê¹€ì¼ì„±", "ìŠ¤íƒˆë¦°", "í‘¸í‹´", "ë Œì•¼", "ì´ì™„ìš©", "ì¼ë¡ ë¨¸ìŠ¤í¬"]
+        jsAlias = ["ì¤‘êµ­ì¸", "í•œêµ­ì¸", "ì¼ë³¸ì¸", "ê³µë¶€ì•ˆí•¨", "ë„ˆ ëˆ„êµ¬ì•¼", "ë„ì§€ì½”ì¸ ì‚¼", "ì†Œë§ë¦¬ì•„ ì—¬í–‰", "ê³µì•ˆì— ìž¡íž˜", "êµ­ì •ì›ì— ìž¡íž˜", "ê²€ì—´", "ì´ì¤‘êµ­ì ", "ë‚©ì¹˜ëœ", "ì£¼ê¸ˆ", "í—ˆê²½ì˜ ì§€ì§€ìž", "ì¹œì¼ë°˜ë¯¼ì¡±í–‰ìœ„ìž", "ê³µì‚°ë‹¹ ì¢‹ì•„í•¨", "íŒŒëž‘ë‹¹ ì¢‹ì•„í•¨", "ë¹¨ê°„ë‹¹ ì¢‹ì•„í•¨", "ë‚˜ë½ê°", "ížˆí‹€ëŸ¬ ì¹œêµ¬", "í•œêµ­ì—ì„œ ì¼ë³¸ê¹Œì§€ ìˆ˜ì˜í•´ì„œ ê°", "ìˆ˜ë°° ë¨", "ì¹¼ë¹µë§žìŒ", "í•˜ë‚¨ìž", "ì›”ë¶í•¨", "íŒŒì‹œìŠ¤íŠ¸", "ì¸ì„±í„°ì§", "ìžìœ ë¥¼ ì°¾ìœ¼ëŸ¬ ë– ë‚¨", ]
 
         function setNewWord() {
             if (gameEnd)
@@ -78,7 +79,7 @@
             inputTyping.focus()
         }
 
-        init()  // ½ÃÀÛ
+        init()  // ì‹œìž‘
     </script>
 </body>
 </html>
