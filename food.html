@@ -1,7 +1,8 @@
 
 <html>
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
             margin: 0;
@@ -101,44 +102,44 @@
     </style>
     <script>
     const qanda = [
-          ["¾È³ç", "¾È³çÇÏ¼¼¿ä. ¹«¾úÀ» µµ¿Í µå¸±±î¿ä?"],
-          ["¸Ş´º", "¿ì¸® ½Ä´çÀÇ ¸Ş´º´Â ³³Ä¡, »ìÀÎ, µå·³Åë, Àü½Ã µîÀÌ ÀÖ½À´Ï´Ù."],
-          ["°¨»ç", "³×, °¨»çÇÕ´Ï´Ù. Áñ°Å¿î »ìÀÎ º¸³»½Ã±â ¹Ù¶ø´Ï´Ù."],
+          ["ì•ˆë…•", "ì•ˆë…•í•˜ì„¸ìš”. ë¬´ì—ˆì„ ë„ì™€ ë“œë¦´ê¹Œìš”?"],
+          ["ë©”ë‰´", "ìš°ë¦¬ ì‹ë‹¹ì˜ ë©”ë‰´ëŠ” ë‚©ì¹˜, ì‚´ì¸, ë“œëŸ¼í†µ, ì „ì‹œ ë“±ì´ ìˆìŠµë‹ˆë‹¤."],
+          ["ê°ì‚¬", "ë„¤, ê°ì‚¬í•©ë‹ˆë‹¤. ì¦ê±°ìš´ ì‚´ì¸ ë³´ë‚´ì‹œê¸° ë°”ëë‹ˆë‹¤."],
     ];
-    const menu = [ "³³Ä¡", "»ìÀÎ", "µå·³Åë", "Àü½Ã" ];
+    const menu = [ "ë‚©ì¹˜", "ì‚´ì¸", "ë“œëŸ¼í†µ", "ì „ì‹œ" ];
     var user_order = [];
     var myName = "me";
     const hostName = "Host"
     audio = new Audio("dingdong.wav")
 
-    // init ÇÔ¼ö
+    // init í•¨ìˆ˜
     function init() {
         user_order = [];
 
-        // enter Å° ÀÌº¥Æ®
+        // enter í‚¤ ì´ë²¤íŠ¸
         document.querySelector(".userin").onkeydown = function(e){
             if(e.keyCode == 13 && !e.shiftKey) {
                 e.preventDefault();
                 const message = e.target.value;
                 console.log(message.length);
                 if ( message.length > 0 ) {
-                   // ¸Ş½ÃÁö Ã¼Å©
+                   // ë©”ì‹œì§€ ì²´í¬
                   checkMessage(message);
-                  // ÀÔ·ÂÃ¢ clear
+                  // ì…ë ¥ì°½ clear
                   clearTextarea();
                 }
             }
         };
-        // ÃÊ±â ¸Ş½ÃÁö º¸ÀÌ±â
+        // ì´ˆê¸° ë©”ì‹œì§€ ë³´ì´ê¸°
         initMessage();
     }
 
-    // ¸Ş¼¼Áö ÅÂ±× »ı¼º
+    // ë©”ì„¸ì§€ íƒœê·¸ ìƒì„±
     function createMessageTag(LR_className, hostName, message) {
-        // Çü½Ä °¡Á®¿À±â
+        // í˜•ì‹ ê°€ì ¸ì˜¤ê¸°
         let chatLi = document.querySelector('div.chat.format ul li').cloneNode(true);
 
-        // °ª Ã¤¿ì±â
+        // ê°’ ì±„ìš°ê¸°
         chatLi.classList.add(LR_className);
         let now = new Date()
         var hours = ('0' + now.getHours()).slice(-2);
@@ -154,26 +155,26 @@
         return chatLi;
     }
 
-    // ¸Ş¼¼Áö ÅÂ±× append
+    // ë©”ì„¸ì§€ íƒœê·¸ append
     function appendMessageTag(LR_className, hostName, message) {
         const chatLi = createMessageTag(LR_className, hostName, message);
         document.querySelector('div.chat:not(.format) ul').append(chatLi);
-        // È­¸é ½ºÅ©·Ñ
+        // í™”ë©´ ìŠ¤í¬ë¡¤
         chatLi.scrollIntoView({behavior: "smooth"})
     }
 
-    // ¸Ş¼¼Áö Ã¼Å©
+    // ë©”ì„¸ì§€ ì²´í¬
     function checkMessage(message) {
         let data = {
             "hostName"    : myName,
             "message"     : message
         };
         showQueryMessage(data);
-        if ( message.startsWith("ÁÖ¹®") ) {
+        if ( message.startsWith("ì£¼ë¬¸") ) {
             order()
             return;
         }
-        else if ( message.startsWith("´Ù½Ã") ) {
+        else if ( message.startsWith("ë‹¤ì‹œ") ) {
             init()
             return;
         }
@@ -186,15 +187,15 @@
         showReplyMessage(data);
     }
 
-    // ÃÊ±â ¸Ş¼¼Áö Ç¥½Ã
+    // ì´ˆê¸° ë©”ì„¸ì§€ í‘œì‹œ
     function initMessage() {
-        let message = [ "¾È³çÇÏ½Ê´Ï±î? " + myName + "´Ô. ¿ì¸® ½Ä´ç¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù.",
-                        "¿ì¸® ½Ä´çÀÇ ¸Ş´º´Â »ìÀÎ, ³³Ä¡, µå·³Åë, Àü½Ã µîÀÔ´Ï´Ù.",
-                        "'³³Ä¡ 2'°ú °°ÀÌ ¿øÇÏ½Ã´Â ¸Ş´ºÀÇ ÀÌ¸§°ú ¼ö·®À» ¶ç¾î¼­ ÀÔ·ÂÇÏ¿© ÁÖ¹®ÇÕ´Ï´Ù. ",
-                        "'ÁÖ¹®', '¸Ş´º', '´Ù½Ã, '?' µîÀÇ ÀÔ·ÂÀ¸·Î ÁøÇà °¡´ÉÇÕ´Ï´Ù. ",
-                        "ÁÖ¹®À» ¿Ï·áÇÏ½Ã·Á¸é 'ÁÖ¹®' ÀÔ·Â ¶Ç´Â ÁÖ¹®ÇÏ±â ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä",
-                        "Ã³À½ºÎÅÍ ´Ù½Ã ½ÃÀÛÇÏ·Á¸é '´Ù½Ã' ÀÔ·Â ¶Ç´Â ´Ù½ÃÇÏ±â ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä",
-                        "Áñ°Å¿î ½Ã°£ µÇ½Ã±â ¹Ù¶ø´Ï´Ù."
+        let message = [ "ì•ˆë…•í•˜ì‹­ë‹ˆê¹Œ? " + myName + "ë‹˜. ìš°ë¦¬ ì‹ë‹¹ì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤.",
+                        "ìš°ë¦¬ ì‹ë‹¹ì˜ ë©”ë‰´ëŠ” ì‚´ì¸, ë‚©ì¹˜, ë“œëŸ¼í†µ, ì „ì‹œ ë“±ì…ë‹ˆë‹¤.",
+                        "'ë‚©ì¹˜ 2'ê³¼ ê°™ì´ ì›í•˜ì‹œëŠ” ë©”ë‰´ì˜ ì´ë¦„ê³¼ ìˆ˜ëŸ‰ì„ ë„ì–´ì„œ ì…ë ¥í•˜ì—¬ ì£¼ë¬¸í•©ë‹ˆë‹¤. ",
+                        "'ì£¼ë¬¸', 'ë©”ë‰´', 'ë‹¤ì‹œ, '?' ë“±ì˜ ì…ë ¥ìœ¼ë¡œ ì§„í–‰ ê°€ëŠ¥í•©ë‹ˆë‹¤. ",
+                        "ì£¼ë¬¸ì„ ì™„ë£Œí•˜ì‹œë ¤ë©´ 'ì£¼ë¬¸' ì…ë ¥ ë˜ëŠ” ì£¼ë¬¸í•˜ê¸° ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”",
+                        "ì²˜ìŒë¶€í„° ë‹¤ì‹œ ì‹œì‘í•˜ë ¤ë©´ 'ë‹¤ì‹œ' ì…ë ¥ ë˜ëŠ” ë‹¤ì‹œí•˜ê¸° ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”",
+                        "ì¦ê±°ìš´ ì‹œê°„ ë˜ì‹œê¸° ë°”ëë‹ˆë‹¤."
         ];
 
         const LR = "left";
@@ -205,19 +206,19 @@
         document.querySelector('div.input-div .userin').focus()
     }
 
-    // ¸Ş¼¼Áö ÀÔ·Â¹Ú½º ³»¿ë Áö¿ì±â
+    // ë©”ì„¸ì§€ ì…ë ¥ë°•ìŠ¤ ë‚´ìš© ì§€ìš°ê¸°
     function clearTextarea() {
         document.querySelector('.userin').value = '';
     }
 
-    // ÀÌ¿ëÀÚ ÀÔ·Â ¸Ş¼¼Áö Ç¥½Ã
+    // ì´ìš©ì ì…ë ¥ ë©”ì„¸ì§€ í‘œì‹œ
     function showQueryMessage(data) {
         const LR = "right";
         appendMessageTag(LR, data.hostName, data.message);
 
     }
 
-    // ÀÔ·Â ¸Ş¼¼Áö Ã³¸®ÈÄ ´äº¯ÇÏ±â
+    // ì…ë ¥ ë©”ì„¸ì§€ ì²˜ë¦¬í›„ ë‹µë³€í•˜ê¸°
     function showReplyMessage(data) {
         let found = -1;
         for ( let i=0 ; i<qanda.length ; i++ ) {
@@ -227,54 +228,54 @@
             }
         }
         if ( found != -1 ) {
-            // Q&A ¸Ş½ÃÁö Ã³¸®
+            // Q&A ë©”ì‹œì§€ ì²˜ë¦¬
             data.message = qanda[found][1];
         }
         else  {
-            // ÁÖ¹® ¸Ş½ÃÁö Ã³¸®
+            // ì£¼ë¬¸ ë©”ì‹œì§€ ì²˜ë¦¬
             let fname = data.message.split(" ")
             for ( let i=0 ; i<menu.length ; i++ ) {
                 if ( menu[i].includes(fname[0]) ) {
                     let fnum = Number(fname[1])
                     if ( isNaN(fnum) ) {
-                        data.message = "¸Ş´ºÀÇ °¹¼ö°¡ ¾ø½À´Ï´Ù."
+                        data.message = "ë©”ë‰´ì˜ ê°¯ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤."
                     }
                     else  {
                         found = i;
                         user_order.push([menu[i], fnum])
-                        data.message = "Áö±İ±îÁöÀÇ ÁÖ¹®³»¿ªÀº " + menuToString(user_order)
+                        data.message = "ì§€ê¸ˆê¹Œì§€ì˜ ì£¼ë¬¸ë‚´ì—­ì€ " + menuToString(user_order)
                     }
                     break
                 }
             }
         }
         if ( found == -1 ) {
-            // ¸Ş½ÃÁö ³»¿ë ÀÌÇØ ¸ø ÇÔ
-            data.message = "ÁË¼ÛÇÕ´Ï´Ù. ´Ù½Ã ¸»¾¸ÇØÁÖ¼¼¿ä";
+            // ë©”ì‹œì§€ ë‚´ìš© ì´í•´ ëª» í•¨
+            data.message = "ì£„ì†¡í•©ë‹ˆë‹¤. ë‹¤ì‹œ ë§ì”€í•´ì£¼ì„¸ìš”";
         }
 
-        // Ã³¸® ÀÀ´ä ¸Ş½ÃÁö Ç¥½Ã
+        // ì²˜ë¦¬ ì‘ë‹µ ë©”ì‹œì§€ í‘œì‹œ
         const LR = "left";
         appendMessageTag(LR, data.hostName, data.message);
 
     }
 
-    // ÁÖ¹® ¸í·É¿¡ ´äº¯ÇÏ±â
+    // ì£¼ë¬¸ ëª…ë ¹ì— ë‹µë³€í•˜ê¸°
     function order() {
         const LR = "left";
         if ( user_order.length == 0 )  {
-            appendMessageTag(LR, myName, "ÁÖ¹®ÇÒ ³»¿ªÀÌ ¾ø½À´Ï´Ù");
+            appendMessageTag(LR, myName, "ì£¼ë¬¸í•  ë‚´ì—­ì´ ì—†ìŠµë‹ˆë‹¤");
             return;
         }
 
         let data = {
             "hostName" : myName,
-            "message"  : myName + "´Ô²²¼­ " + menuToString(user_order) + "À» ÁÖ¹®ÇÏ¼Ì½À´Ï´Ù."
+            "message"  : myName + "ë‹˜ê»˜ì„œ " + menuToString(user_order) + "ì„ ì£¼ë¬¸í•˜ì…¨ìŠµë‹ˆë‹¤."
         };
         appendMessageTag(LR, data.hostName, data.message)
         audio.play()
         data.sender = hostName
-        data.message = "°¨»çÇÕ´Ï´Ù. ¶Ç ¿À¼¼¿ä~"
+        data.message = "ê°ì‚¬í•©ë‹ˆë‹¤. ë˜ ì˜¤ì„¸ìš”~"
         appendMessageTag(LR, data.hostName, data.message)
         user_order = []
     }
@@ -288,9 +289,9 @@
         return ("[" + narr.toString() + "]");
     }
 
-    // ½ÃÀÛ ÄÚµå
+    // ì‹œì‘ ì½”ë“œ
     window.onload = function() {
-        myName = prompt("¹İ°©½À´Ï´Ù. ¼ºÇÔÀÌ ¾î¶»°Ô µÇ½Ã³ª¿ä?", "me");
+        myName = prompt("ë°˜ê°‘ìŠµë‹ˆë‹¤. ì„±í•¨ì´ ì–´ë–»ê²Œ ë˜ì‹œë‚˜ìš”?", "me");
         init();
     }
     </script>
@@ -302,13 +303,13 @@
         </div>
         <div class="chat">
             <ul id="content">
-                <!-- µ¿Àû Ãß°¡ »ı¼º -->
+                <!-- ë™ì  ì¶”ê°€ ìƒì„± -->
             </ul>
         </div>
         <div class="input-div">
-            <input type="button" value="´Ù½ÃÇÏ±â" onclick="init()">
+            <input type="button" value="ë‹¤ì‹œí•˜ê¸°" onclick="init()">
             <input type="text" class="userin">
-            <input type="button" value="ÁÖ¹®ÇÏ±â" onclick="order()">
+            <input type="button" value="ì£¼ë¬¸í•˜ê¸°" onclick="order()">
         </div>
 
         <!-- format -->
