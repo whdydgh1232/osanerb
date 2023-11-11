@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>짝맞추기</title>
+<style>
+  .card {
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 140px;
+    height: 200px;
+    perspective: 280px;
+  }
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  .card-front {
+    background: orange;
+  }
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    backface-visibility: hidden;
+  }
+  .card-back {
+    transform: rotateY(180deg);
+  }
+</style>
+</head>
+<body>
+<div id="wrapper"></div>
+<div id="wrapper">
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+  <div class="card"><div class="card-inner"><div class="card-front"></div><div class="card-back"></div></div></div>
+</div>
+<div id="debug"></div>
+<script>
+  const $wrapper = document.querySelector('#wrapper');
+  
+  const colors = ['pink', 'green', 'purple', 'red' ];
+  const total = colors.length * 2;
+  let colorCopy = colors.concat(colors);
+  let shuffled = [];
+  let clicked = [];
+  let completed = [];
+  let clickable = false;
+
+  function shuffle() {
+    for (let i = 0; colorCopy.length > 0; i += 1) {
+      const randomIndex = Math.floor(Math.random() * total);
+      shuffled = shuffled.concat(colorCopy.splice(randomIndex, 1));
+    }
+  }
+
+  function onClickCard() {
+    if (!clickable || completed.includes(this) || clicked[0] === this) {
+      return;
+    }
+    this.classList.toggle('flipped');
+    clicked.push(this);
+    if (clicked.length !== 2) {
+      return;
+    }
+    const firstBackColor = clicked[0].querySelector('.card-back').style.backgroundColor;
+    const secondBackColor = clicked[1].querySelector('.card-back').style.backgroundColor;
+    if (firstBackColor === secondBackColor) { // 두 카드가 같은 카드면
+      completed.push(clicked[0]);
+      completed.push(clicked[1]);
+      clicked = [];
+      if (completed.length !== total) {
+        return;
+      }
+      setTimeout(function() {
+        alert(`어캐했누`);
+        resetGame();
+      }, 1000);
+      return;
+    }
+    clickable = false;
+    setTimeout(function() {
+      clicked[0].classList.remove('flipped');
+      clicked[1].classList.remove('flipped');
+      clicked = [];
+      clickable = true;
+    }, 500);
+  }
+
+  function startGame() {
+    clickable = false;
+    shuffle();
+
+    var card = document.querySelectorAll('.card');
+    for (let i=0; i<total; i++) {
+      card[i].addEventListener('click', onClickCard);
+    }
+
+    var backCard = document.querySelectorAll('.card-back');
+    for (let i=0; i<total; i++) {
+      let card = backCard[i];
+      card.style.backgroundColor = shuffled[i];
+      card.addEventListener('click', onClickCard);
+    }
+
+    document.querySelectorAll('.card').forEach((card, index) => { // 초반 카드 공개
+      setTimeout(function() {
+        card.classList.add('flipped');
+      }, 1000 + 100 * index);
+    });
+
+    setTimeout(() => { // 카드 감추기
+      document.querySelectorAll('.card').forEach((card) => {
+        card.classList.remove('flipped');
+      });
+      clickable = true;
+    }, 5000);
+  }
+  startGame();
+
+  function resetGame() {
+    $wrapper.innerHTML = '';
+    colorCopy = colors.concat(colors);
+    shuffled = [];
+    completed = [];
+    startGame();
+  }
+  
+</script>
+</body>
+</html>
